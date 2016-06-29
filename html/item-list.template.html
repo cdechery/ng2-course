@@ -1,0 +1,9 @@
+<add-item (itemAdded)="onItemAdded($event)"></add-item>
+<div>
+    <ul>
+        <li *ngFor="#listItem of itemList, #i = index" (click)="openEdit(listItem, i)">
+            {{listItem.name}} ({{listItem.amount}})
+        </li>
+    </ul>
+</div>
+<edit-item (itemDeleted)="deleteItem()" [itemToEdit]="selectedItem" [style.display]="editOpened ? 'block':'none'"></edit-item>
